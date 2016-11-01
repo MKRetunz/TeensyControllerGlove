@@ -150,14 +150,7 @@ void loop() {
         delta_x = (ALPHA * diff_x) + (1 - ALPHA);
         delta_y = (ALPHA * diff_y) + (1 - ALPHA);
         
-        /*Serial.print("quat\t");
-        Serial.print(q.w);         
-        Serial.print("\t");
-        Serial.print(q.x);
-        Serial.print("\t");
-        Serial.print(q.y);
-        Serial.print("\t");
-        Serial.println(q.z);*/
+        Mouse.move(delta_x, delta_y); 
 
         prev_delta_x = delta_x;
         prev_delta_y = delta_y;
