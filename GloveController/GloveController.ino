@@ -149,6 +149,7 @@ void loop() {
 
         delta_x = (ALPHA * diff_x) + (1 - ALPHA);
         delta_y = (ALPHA * diff_y) + (1 - ALPHA);
+        
         /*Serial.print("quat\t");
         Serial.print(q.w);         
         Serial.print("\t");
@@ -156,7 +157,8 @@ void loop() {
         Serial.print("\t");
         Serial.print(q.y);
         Serial.print("\t");
-        Serial.println(q.z);*
+        Serial.println(q.z);*/
+
     }
     delay(50);
 }
