@@ -111,17 +111,10 @@ void setup() {
 void loop() {
     if (!dmpReady) 
       while (!mpuInterrupt && fifoCount < packetSize) {
-    if(Serial.available()) {
-      char inByte = Serial.read();
-
-      if (inByte == GIVE_INPUT) {
-        passValuesToComputer();
+        if(Serial.available()) {
+          char inByte = Serial.read();
+        }    
       }
-      else if (inByte == ISSUE_COMMAND) {
-        parseCommands();
-      } 
-    }    
-    }
 
      LmouseState = digitalRead(LMOUSE_PIN);
      EscState = digitalRead(ESC_PIN);
@@ -150,10 +143,8 @@ void loop() {
         Serial.print("\t");
         Serial.print(q.y);
         Serial.print("\t");
-        Serial.println(q.z);
-        
+        Serial.println(q.z);  
     }
-
     delay(50);
 }
 
@@ -170,17 +161,4 @@ void passValuesToComputer()
     sOutput = sOutput + "," + adc3;
 
     Serial.println(sOutput);
-}
-
-void parseCommands() {
-  delay(1);
-  if(Serial.available()) {
-        char inByte = Serial.read();
-        if (inByte == SET_LED_ON) {
-           digitalWrite(LED_PIN, HIGH);   // set the LED on
-        }
-        else if (inByte == SET_LED_OFF) {
-           digitalWrite(LED_PIN, LOW);   // set the LED off
-        }  // else, ignore this byte
-  }
 }
