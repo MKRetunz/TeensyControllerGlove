@@ -146,6 +146,9 @@ void loop() {
 
         if (abs(diff_x) < DEAD_X) diff_x = 0;
         if (abs(diff_y) < DEAD_Y) diff_y = 0;
+
+        delta_x = (ALPHA * diff_x) + (1 - ALPHA);
+        delta_y = (ALPHA * diff_y) + (1 - ALPHA);
         /*Serial.print("quat\t");
         Serial.print(q.w);         
         Serial.print("\t");
