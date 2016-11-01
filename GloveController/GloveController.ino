@@ -144,8 +144,8 @@ void loop() {
         fifoCount -= packetSize;
         mpu.dmpGetQuaternion(&q, fifoBuffer);
 
-        diff_x = q.x;
-        diff_y = q.y;
+        diff_x = q.x * 100;
+        diff_y = q.y * 100;
 
         if (abs(diff_x) < DEAD_X) diff_x = 0;
         if (abs(diff_y) < DEAD_Y) diff_y = 0;
