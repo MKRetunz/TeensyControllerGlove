@@ -155,6 +155,9 @@ void loop() {
 
         delta_x = (ALPHA * diff_x) + (1 - ALPHA);
         delta_y = (ALPHA * diff_y) + (1 - ALPHA);
+
+        delta_y *= -1;
+        delta_x *= -1;
         
         Mouse.move(delta_x, delta_y); 
 
