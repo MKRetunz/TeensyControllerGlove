@@ -57,6 +57,7 @@ float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gra
 const int LMOUSE_PIN = 22;  // Pin for the left mouse button
 const int ESC_PIN = 21;     // Pin for the escape button
 
+int prev_delta_x, prev_delta_y;
 int LmouseState = 0;
 int EscState = 0;
 
