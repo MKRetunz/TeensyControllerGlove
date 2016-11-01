@@ -147,8 +147,8 @@ void loop() {
         mpu.dmpGetGravity(&gravity, &q);
         mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
 
-        diff_x = ypr[0] * 10;
-        diff_y = ypr[2] * 10;
+        diff_x = ypr[1] * 100;
+        diff_y = ypr[2] * 100;
 
         if (abs(diff_x) < DEAD_X) diff_x = 0;
         if (abs(diff_y) < DEAD_Y) diff_y = 0;
@@ -156,9 +156,9 @@ void loop() {
         delta_x = (ALPHA * diff_x) + (1 - ALPHA);
         delta_y = (ALPHA * diff_y) + (1 - ALPHA);
         
-        //Mouse.move(delta_x, delta_y); 
-
-        Serial.println(delta_x, delta_y);
+        Mouse.move(delta_x, delta_y); 
+        //Serial.print(delta_x);
+        //Serial.println(delta_y);
 
         prev_delta_x = delta_x;
         prev_delta_y = delta_y;
