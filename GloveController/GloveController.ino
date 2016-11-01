@@ -110,6 +110,9 @@ void setup() {
 // ================================================================
 
 void loop() {
+  int diff_x, diff_y;     // difference between new and recorded position
+  float delta_x, delta_y; // difference used for smoothing 
+  
     if (!dmpReady) 
       while (!mpuInterrupt && fifoCount < packetSize) {
         if(Serial.available()) {
