@@ -136,14 +136,14 @@ void loop() {
         mpu.getFIFOBytes(fifoBuffer, packetSize);
         fifoCount -= packetSize;
         mpu.dmpGetQuaternion(&q, fifoBuffer);
-        Serial.print("quat\t");
+        /*Serial.print("quat\t");
         Serial.print(q.w);         
         Serial.print("\t");
         Serial.print(q.x);
         Serial.print("\t");
         Serial.print(q.y);
         Serial.print("\t");
-        Serial.println(q.z);  
+        Serial.println(q.z);*/  
     }
     delay(50);
 }
