@@ -126,6 +126,9 @@ void loop() {
       Mouse.click();
       Mouse.set_buttons(1, 0, 0);
     } 
+    else {
+      Mouse.set_buttons(0, 0, 0);
+    }
     if (EscState == LOW) {
       Keyboard.set_key1(KEY_ESC);
       Keyboard.send_now();
