@@ -123,12 +123,12 @@ void loop() {
      LmouseState = digitalRead(LMOUSE_PIN);
      EscState = digitalRead(ESC_PIN);
     if (LmouseState == LOW) {      
-      //Mouse.click();
-      //Mouse.set_buttons(1, 0, 0);
+      Mouse.click();
+      Mouse.set_buttons(1, 0, 0);
     } 
     if (EscState == LOW) {
-      //Keyboard.set_key1(KEY_ESC);
-      //Keyboard.send_now();
+      Keyboard.set_key1(KEY_ESC);
+      Keyboard.send_now();
     }
     mpuInterrupt = false;
     mpuIntStatus = mpu.getIntStatus();
@@ -147,7 +147,7 @@ void loop() {
         Serial.print("\t");
         Serial.print(q.y);
         Serial.print("\t");
-        Serial.println(q.z);*/
+        Serial.println(q.z);*
     }
     delay(50);
 }
