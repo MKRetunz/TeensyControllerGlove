@@ -33,6 +33,9 @@ bool blinkState = false;
 #define SET_LED_OFF    'y'
 #define DEAD_X 5
 #define DEAD_Y 5
+#define MAX_MOVE_X 60
+#define MAX_MOVE_Y 40
+#define ALPHA 0.5
 
 // MPU control/status vars
 bool dmpReady = false;  // set true if DMP init was successful
@@ -143,7 +146,7 @@ void loop() {
         Serial.print("\t");
         Serial.print(q.y);
         Serial.print("\t");
-        Serial.println(q.z);*/  
+        Serial.println(q.z);*/
     }
     delay(50);
 }
