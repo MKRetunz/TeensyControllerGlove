@@ -61,9 +61,6 @@ int prev_delta_x, prev_delta_y;
 int LmouseState = 0;
 int EscState = 0;
 
-// packet structure for InvenSense teapot demo
-uint8_t teapotPacket[14] = { '$', 0x02, 0,0, 0,0, 0,0, 0,0, 0x00, 0x00, '\r', '\n' };
-
 // ================================================================
 // ===               INTERRUPT DETECTION ROUTINE                ===
 // ================================================================
@@ -150,19 +147,4 @@ void loop() {
         Serial.println(q.z);*/
     }
     delay(50);
-}
-
-void passValuesToComputer()
-{
-    String sOutput = "";
-    int adc0 = (int) (q.x * 1000);
-    sOutput = sOutput + adc0;
-    int adc1 = (int) (q.y * 1000);
-    sOutput = sOutput + "," + adc1;
-    int adc2 = (int) (q.z * 1000);
-    sOutput = sOutput + "," + adc2;
-    int adc3 = (int) (q.w * 1000);
-    sOutput = sOutput + "," + adc3;
-
-    Serial.println(sOutput);
 }
