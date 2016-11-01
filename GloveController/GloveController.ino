@@ -143,6 +143,9 @@ void loop() {
         mpu.getFIFOBytes(fifoBuffer, packetSize);
         fifoCount -= packetSize;
         mpu.dmpGetQuaternion(&q, fifoBuffer);
+
+        if (abs(diff_x) < DEAD_X) diff_x = 0;
+        if (abs(diff_y) < DEAD_Y) diff_y = 0;
         /*Serial.print("quat\t");
         Serial.print(q.w);         
         Serial.print("\t");
