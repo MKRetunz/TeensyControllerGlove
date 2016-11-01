@@ -75,8 +75,8 @@ void dmpDataReady() {
 // ================================================================
 void setup() {
     pinMode(INTERRUPT_PIN, INPUT); // Gidi: sets the digital pin as input,  necessary for the interrupt
-    pinMode(LMOUSE_PIN, INPUT); 
-    pinMode(ESC_PIN, INPUT);
+    pinMode(LMOUSE_PIN, INPUT_PULLUP); 
+    pinMode(ESC_PIN, INPUT_PULLUP);
     
     #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
         Wire.begin();
@@ -123,15 +123,15 @@ void loop() {
      LmouseState = digitalRead(LMOUSE_PIN);
      EscState = digitalRead(ESC_PIN);
     if (LmouseState == LOW) {      
-      //Mouse.click();
-      //Mouse.set_buttons(1, 0, 0);
+      Mouse.click();
+      Mouse.set_buttons(1, 0, 0);
     } 
     else {
-      //Mouse.set_buttons(0, 0, 0);
+      Mouse.set_buttons(0, 0, 0);
     }
     if (EscState == LOW) {
-      //Keyboard.set_key1(KEY_ESC);
-      //Keyboard.send_now();
+      Keyboard.set_key1(KEY_ESC);
+      Keyboard.send_now();
     }
     mpuInterrupt = false;
     mpuIntStatus = mpu.getIntStatus();
@@ -157,8 +157,6 @@ void loop() {
         delta_y = (ALPHA * diff_y) + (1 - ALPHA);
         
         Mouse.move(delta_x, delta_y); 
-        //Serial.print(delta_x);
-        //Serial.println(delta_y);
 
         prev_delta_x = delta_x;
         prev_delta_y = delta_y;
