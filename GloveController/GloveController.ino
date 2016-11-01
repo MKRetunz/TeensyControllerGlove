@@ -159,6 +159,8 @@ void loop() {
         Serial.print("\t");
         Serial.println(q.z);*/
 
+        prev_delta_x = delta_x;
+        prev_delta_y = delta_y;
     }
     delay(50);
 }
